@@ -1,0 +1,64 @@
+#foto{
+    width: 230px;
+    max-height: 200px;
+    border: 2px solid #1c6ab9;
+    border-radius: 15px;
+}
+
+
+.resultado{
+    border: 2px solid #1c6ab9;
+    align-items: center;
+}
+
+.btnreserva{
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.star{      /*para las estrellas*/
+    color: #ffff00;
+    font-size: 25px;
+}
+
+.star1{
+    color:rgb(185, 185, 185);
+    font-size: 25px;
+}
+
+
+.imgpago{
+    height: 50px;
+    width: 100%;
+}
+
+.fotoCiudad img{
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    
+}
+
+.fotoAuto img{
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.flecha{
+    text-align: center;
+}
+
+.flecha i{
+    font-size: 100px;
+    color: #1c6ab9;
+}
+
+.fotoyape{
+    height: 50px;
+    width: 150px;
+    border: 2px solid #72ff1b;
+}
