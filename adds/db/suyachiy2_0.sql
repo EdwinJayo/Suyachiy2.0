@@ -1,6 +1,6 @@
--- Base de datos suyachiy
-CREATE DATABASE suyachiy;
-USE suyachiy;
+-- Base de datos suyachiy2.0
+CREATE DATABASE suyachiy2.0;
+USE suyachiy2.0;
 
 -- Tabla de Tipos de Usuario
 CREATE TABLE tipos_usuario (
