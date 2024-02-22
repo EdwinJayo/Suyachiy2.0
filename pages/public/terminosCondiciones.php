@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Iniciar Sesion</title>
+    <title>Terminos y condiciones</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -33,34 +33,35 @@
     ?>
     <!-- Navbar End -->
 
-    <!-- Login Start -->
+    <!-- Terminos y condiciones Start -->
     <div class="container-fluid">
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h3>Inicia Sesion</h3>
+                        <h3 >Terminos y condiciones</h3>
                     </div>
-                    <div class="form-floating mb-3 required">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email</label>
-                    </div>
-                    <div class="form-floating mb-4 required">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mb-4 required">
-                        <div>
+                    <p>Reserva tu viaje con nosotros y disfruta de la mejor experiencia. Encontraras pasajes para buses, 
+                        autos y minibans a destinos interprovinciales, con los mejores precios y la mejor atención. 
+                        Puedes reservar online por nuestro sitio web. ¡Reserva tu viaje YAA!</p><br>
+                    <p> Reserva tu viaje con nosotros y disfruta de la mejor experiencia. Encontraras pasajes para buses, 
+                        autos y minibans a destinos interprovinciales, con los mejores precios y la mejor atención. 
+                        Puedes reservar online por nuestro sitio web. ¡Reserva tu viaje YAA!</p>
+                    
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Aceptar los terminos y condiciones</label>
                         </div>
-                        <a href="">Olvide mi contraseña</a>
                     </div>
-                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Iniciar Sesion</button>
-                    <p class="text-center mb-0">¿No tienes una cuenta? <a href="terminosCondiciones.php">Registrate</a></p>
+
+                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='registroConductor.php'" >Continuar</button>
+                    <p class="text-center mb-0"><a href="loginConductor.php">Regresar</a></p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Login End -->
+    <!-- Terminos y condiciones End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
