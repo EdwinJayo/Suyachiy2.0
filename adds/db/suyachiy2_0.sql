@@ -179,12 +179,6 @@ INSERT INTO tipos_usuario (tipo_usuario) VALUES
 ('Conductor'),
 ('Administrador');
 
--- Tabla de Ubicaciones
-INSERT INTO ubicaciones (ubicacion) VALUES
-('Lima'),
-('Cusco'),
-('Arequipa');
-
 -- Tabla de Usuarios
 INSERT INTO usuarios (nombre, apellido, email, contraseña, tipo_usuario_id, foto_perfil, ubicacion_id) VALUES
 ('Juan', 'Perez', 'juan@gmail.com', 'hashedpassword1', 1, 'ruta_foto1.jpg', 1),

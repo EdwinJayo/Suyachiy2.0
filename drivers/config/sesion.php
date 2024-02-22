@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+session_start();            // inicia una nueva sesion o reanuda la existente
 $login = $_SESSION['login'];
 
 if (!$login){
@@ -8,6 +8,6 @@ if (!$login){
 }
 
 else{
-    $correo = $_SESSION['correo'];
+    $correo = $_SESSION['correo'];      // no es estrictamente necesario, pero nos facilita el codigo mas adelante
 }
 ?>

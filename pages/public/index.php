@@ -1,3 +1,8 @@
+<?php
+include("../../drivers/config//conexion.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -93,43 +98,67 @@
     <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
-                <div class="row align-items-center" style="min-height: 60px;">
-                    <div class="col-md-10">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Origen</option>
-                                        <option value="1">Origen 1</option>
-                                        <option value="2">origen 2</option>
-                                        <option value="3">origen 3</option>
-                                    </select>
+                <form name="busqueda" method="POST" action="../../drivers/public/elemBusqueda.php">
+                    <div class="row align-items-center" style="min-height: 60px;">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <select class="custom-select px-4" style="height: 47px;" name="origen">
+
+                                            <option selected>Origen</option>
+
+                                            <?php
+                                            $consulta = "SELECT ubicacion FROM ubicaciones where id_ubicacion<>1";
+                                            $datos = mysqli_query($conexion, $consulta);
+
+                                            while ($fila = mysqli_fetch_array($datos)) {
+                                            ?>
+
+                                                <option><?php echo $fila['ubicacion'] ?></option>
+
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Destino</option>
-                                        <option value="1">Destino 1</option>
-                                        <option value="2">Destino 2</option>
-                                        <option value="3">Destino 3</option>
-                                    </select>
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <select class="custom-select px-4" style="height: 47px;" name="destino">
+
+                                            <option selected>Destino</option>
+
+                                            <?php
+                                            $consulta = "SELECT ubicacion FROM ubicaciones where id_ubicacion<>1";
+                                            $datos = mysqli_query($conexion, $consulta);
+
+                                            while ($fila = mysqli_fetch_array($datos)) {
+                                            ?>
+                                                <option><?php echo $fila['ubicacion'] ?></option>
+
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Fecha" data-target="#date1" data-toggle="datetimepicker" />
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <div class="date" id="date1" data-target-input="nearest">
+                                            <input type="text" name="fecha" class="form-control p-4 datetimepicker-input" placeholder="Fecha" data-target="#date1" data-toggle="datetimepicker" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#"><button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Buscar</button></a>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary btn-block" type="submit" name="enviar" value="fff" style="height: 47px; margin-top: -2px;">Buscar</button>
+
+                        </div>
 
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -364,4 +393,5 @@
     ?>
     <!-- Footer End -->
 </body>
+
 </html>

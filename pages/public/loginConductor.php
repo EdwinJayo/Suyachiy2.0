@@ -38,23 +38,26 @@
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h3>Inicia Sesion</h3>
-                    </div>
-                    <div class="form-floating mb-3 required">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email</label>
-                    </div>
-                    <div class="form-floating mb-4 required">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mb-4 required">
-                        <div>
+                    <form name="login conductor" method="POST" action="../../drivers/public/iniciarSesionConductor.php">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3>Inicia Sesion</h3>
                         </div>
-                        <a href="">Olvide mi contraseña</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Iniciar Sesion</button>
+                        <div class="form-floating mb-3 required">
+                            <input type="email" name="correo" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating mb-4 required">
+                            <input type="password" name="contraseña" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                            <label for="floatingPassword">Contraseña</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4 required">
+                            <div>
+                            </div>
+                            <a href="">Olvide mi contraseña</a>
+                        </div>
+                        <button type="submit" name="enviar" class="btn btn-primary py-3 w-100 mb-4">Iniciar Sesion</button>
+                    </form>
+
                     <p class="text-center mb-0">¿No tienes una cuenta? <a href="terminosCondiciones.php">Registrate</a></p>
                 </div>
             </div>

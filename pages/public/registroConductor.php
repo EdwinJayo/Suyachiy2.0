@@ -38,31 +38,29 @@
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h3>Registrarse</h3>
-                    </div>
-                    <div class="form-floating mb-3 required">
-                        <input type="text" class="form-control" id="floatingText" placeholder="Ejm: Diego Andre">
-                        <label for="floatingText">Nombres</label>
-                    </div>
-                    <div class="form-floating mb-3 required">
-                        <input type="text" class="form-control" id="floatingText" placeholder="Ejm: Chipana Perales">
-                        <label for="floatingText">Apellidos</label>
-                    </div>
-                    <div class="form-floating mb-3 date required"id="date1" data-target-input="nearest">
-                        <input type="text" class="form-control p-4 datetimepicker-input"
-                            placeholder="Dia/Mes/Año" data-target="#date1" data-toggle="datetimepicker" />
-                        <label for="floatingText">Fecha de Nacimiento</label>
-                    </div>
-                    <div class="form-floating mb-3 required">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email</label>
-                    </div>
-                    <div class="form-floating mb-4 required">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
+                    <form name="Nuevo conductor" method="POST" action="../../drivers/public/registrarConductor.php">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3>Registrarse</h3>
+                        </div>
+                        <div class="form-floating mb-3 required">
+                            <input type="text" name="nombre" class="form-control" id="floatingText" placeholder="Ejm: Diego Andre" required>
+                            <label for="floatingText">Nombres</label>
+                        </div>
+                        <div class="form-floating mb-3 required">
+                            <input type="text" name="apellidos" class="form-control" id="floatingText" placeholder="Ejm: Chipana Perales" required>
+                            <label for="floatingText">Apellidos</label>
+                        </div>
+                        <div class="form-floating mb-3 required">
+                            <input type="email" name="correo" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating mb-4 required">
+                            <input type="password" name="contraseña" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+                            <label for="floatingPassword">Contraseña</label>
+                        </div>
+                        <button type="submit" name="enviar" class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
+                    </form>
+
                     <p class="text-center mb-0">¿Ya tienes una cuenta? <a href="loginConductor.php">Iniciar Sesion</a></p>
                 </div>
             </div>

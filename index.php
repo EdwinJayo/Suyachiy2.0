@@ -1,3 +1,3 @@
 <?php
-header('Location: pages/clientes/home.php');
+header('Location: pages/public/index.php');
 ?>
