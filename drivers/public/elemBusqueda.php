@@ -2,13 +2,10 @@
     include("../config/conexion.php");
 
     session_start();
-    $fecha   = $_POST["fecha"];           //LA PRIMERA ES LA VARIABLE, LA SEGUNDA DESPUES DEL POST, ES DONDE GUARDAMOS LOS DATOS
-    $origen  = $_POST["origen"];
-    $destino  = $_POST["destino"];
-
-    $_SESSION['origen']      = $origen;
-    $_SESSION['destino']     = $destino;
-    $_SESSION['fecha']       = $fecha;
-
-    echo "$origen $destino $fecha";
+          
+    $_SESSION['origen']      = $_POST["origen"];    //LA PRIMERA ES LA VARIABLE, LA SEGUNDA DESPUES DEL POST, ES DONDE GUARDAMOS LOS DATOS
+    $_SESSION['destino']     = $_POST["destino"];
+    $_SESSION['fecha']       = $_POST["fecha"];  
+    header('Location: ../../pages/public/busqueda.php');
+    //echo $_SESSION['origen'] ;
 ?>

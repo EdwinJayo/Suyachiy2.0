@@ -43,7 +43,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form bg-white" style="padding: 30px;">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form name="contact" method="POST" action="../../drivers/public/contactEnviado.php">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
                                     <input type="text" class="form-control p-4" id="name" placeholder="Su Nombre"

@@ -9,4 +9,23 @@
     font-size: 25px;
 }
 
-/*-------------------contenido---------------------------*/
+/*---------------- Buscar ruta ---------------------------*/
+
+#foto{
+    width: 230px;
+    max-height: 200px;
+    border: 2px solid #1c6ab9;
+    border-radius: 15px;
+}
+
+
+.resultado{
+
+    align-items: center;
+}
+
+.btnreserva{
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+}

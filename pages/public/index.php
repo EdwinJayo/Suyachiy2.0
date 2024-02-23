@@ -23,7 +23,7 @@ include("../../drivers/config//conexion.php");
 
     <!-- Libraries Stylesheet -->
     <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../css/style.css" rel="stylesheet">
@@ -48,10 +48,9 @@ include("../../drivers/config//conexion.php");
                     <img class="w-100" src="../../img/auto3.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Reserva de Pasajes de vehiculos terrestres
-                            </h4>
-                            <h1 class="display-3 text-white mb-md-4">Registrese</h1>
-                            <a href="#" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserva Ahora</a>
+                            <h2 class="text-white text-uppercase mb-md-3">Reserva de Pasajes de vehiculos terrestres
+                            </h2>
+                            <a href="loginCliente.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Inicia Sesion</a>
                         </div>
                     </div>
                 </div>
@@ -59,10 +58,9 @@ include("../../drivers/config//conexion.php");
                     <img class="w-100" src="../../img/auto.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Reserva de Pasajes de vehiculos terrestres
-                            </h4>
-                            <h1 class="display-3 text-white mb-md-4">Registrese</h1>
-                            <a href="#" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserva Ahora</a>
+                            <h2 class="text-white text-uppercase mb-md-3">Reserva de Pasajes de vehiculos terrestres
+                            </h2>
+                            <a href="loginCliente.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Inicia Sesion</a>
                         </div>
                     </div>
                 </div>
@@ -70,10 +68,9 @@ include("../../drivers/config//conexion.php");
                     <img class="w-100" src="../../img/auto2.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Reserva de Pasajes de vehiculos terrestres
-                            </h4>
-                            <h1 class="display-3 text-white mb-md-4">Registrese</h1>
-                            <a href="#" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserva Ahora</a>
+                            <h2 class="text-white text-uppercase mb-md-3">Reserva de Pasajes de vehiculos terrestres
+                            </h2>
+                            <a href="loginCliente.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Inicia Sesion</a>
                         </div>
                     </div>
                 </div>
@@ -103,13 +100,11 @@ include("../../drivers/config//conexion.php");
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="mb-3 mb-md-0">
+                                    <div class="mb-3 mb-md-0">Origen:
                                         <select class="custom-select px-4" style="height: 47px;" name="origen">
 
-                                            <option selected>Origen</option>
-
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones where id_ubicacion<>1";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -124,13 +119,11 @@ include("../../drivers/config//conexion.php");
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="mb-3 mb-md-0">
+                                    <div class="mb-3 mb-md-0">Destino:
                                         <select class="custom-select px-4" style="height: 47px;" name="destino">
 
-                                            <option selected>Destino</option>
-
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones where id_ubicacion<>1";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -144,7 +137,7 @@ include("../../drivers/config//conexion.php");
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="mb-3 mb-md-0">
+                                    <div class="mb-3 mb-md-0">Fecha:
                                         <div class="date" id="date1" data-target-input="nearest">
                                             <input type="text" name="fecha" class="form-control p-4 datetimepicker-input" placeholder="Fecha" data-target="#date1" data-toggle="datetimepicker" />
                                         </div>
@@ -168,96 +161,87 @@ include("../../drivers/config//conexion.php");
     <div class="container-fluid">
         <div class="container">
             <div class="row">
+                <?php
+                    $consulta = "SELECT * FROM viajes limit 12";
+                    $datos = mysqli_query($conexion, $consulta);
+                    while ($fila = mysqli_fetch_array($datos)) {
+                        $con = $fila['conductor_id'];
+                        $ori = $fila['origen_id'];
+                        $des = $fila['destino_id'];
+
+                        $consulta2 = "SELECT * FROM usuarios WHERE id_usuario = $con";
+                        $consulta2 = mysqli_query($conexion, $consulta2);
+                        $consulta2 = mysqli_fetch_array($consulta2);
+
+                        $nombre = $consulta2['nombre'];     //nombre
+                        $apellido = $consulta2['apellido']; // apellido
+                        $email = $consulta2['email'];       //correo
+
+                        $consulta3 = "SELECT * FROM calificaciones_conductores WHERE conductor_id = $con";
+                        $consulta3 = mysqli_query($conexion, $consulta3);
+                        $i = 0;
+                        $contador = 0;
+                        while ($consult = mysqli_fetch_array($consulta3)) {
+                            $i = $i + $consult['calificacion_conductor'];
+                            ++$contador;
+                        }
+                        $calificacion = (int)(($i / $contador)+0.5);       //calificacion
+
+                        $consulta4 = "SELECT * FROM vehiculos WHERE conductor_id = $con";
+                        $consulta4 = mysqli_query($conexion, $consulta4);
+                        $consulta4 = mysqli_fetch_array($consulta4);
+
+                        $fotoVe = $consulta4['foto_vehiculo'];  //foto_vehiculo
+
+                        $consulta5 = "SELECT * FROM ubicaciones WHERE id_ubicacion = $ori";
+                        $consulta5 = mysqli_query($conexion, $consulta5);
+                        $consulta5 = mysqli_fetch_array($consulta5);
+
+                        $origen = $consulta5['ubicacion'];      //origen
+
+                        $consulta6 = "SELECT * FROM ubicaciones WHERE id_ubicacion = $des";
+                        $consulta6 = mysqli_query($conexion, $consulta6);
+                        $consulta6 = mysqli_fetch_array($consulta6);
+
+                        $destino = $consulta6['ubicacion'];      //destino
+                ?>
+
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
-                        <img src="../../img/miban.jpg" style="height: 150px;"><br><br>
-                        <h3 class="mb-2">Conductor Juanito</h3>
-                        <h6 class="text-md-left">Lugar de Partida: Huamanga</h6>
-                        <h6 class="text-md-left">Lugar de destino: Huanta</h6>
+
+                        <img src="../../img/conductores/<?php echo $email."/".$fotoVe ?>" style="height: 150px;"><br><br>
+                        <h3 class="mb-2"><?php echo $nombre." ".$apellido ?></h3>
+                        <h6 class="text-md-left">Origen: <?php echo $origen ?></h6>
+                        <h6 class="text-md-left">Destino: <?php echo $destino ?></h6>
                         <div class="rating">
+                            
+                            <?php //PARA LAS ESTRELLAS DE CALIFICACION
+                                for($iter=1;$iter<=$calificacion;$iter++){
+                            
+                            ?>
+
                             <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
+                            
+                            <?php
+                                }
+                                for($ite=1;$ite<=(5-$calificacion);$ite++){
+                            
+                            ?>
+                            
                             <i class="bi bi-star-fill star1"></i>
+                            
+                            <?php
+                                }
+                            ?>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
-                        <img src="../../img/miban2.jpg" style="height: 150px;"><br><br>
-                        <h3 class="mb-2">Conductor Juanito</h3>
-                        <h6 class="text-md-left">Lugar de Partida: Huamanga</h6>
-                        <h6 class="text-md-left">Lugar de destino: Huanta</h6>
-                        <div class="rating">
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
-                        <img src="../../img/miban3.jpg" style="height: 150px;"><br><br>
-                        <h3 class="mb-2">Conductor Juanito</h3>
-                        <h6 class="text-md-left">Lugar de Partida: Huamanga</h6>
-                        <h6 class="text-md-left">Lugar de destino: Huanta</h6>
-                        <div class="rating">
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star1"></i>
-                            <i class="bi bi-star-fill star1"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
-                        <img src="../../img/miban.jpg" style="height: 150px;"><br><br>
-                        <h3 class="mb-2">Conductor Juanito</h3>
-                        <h6 class="text-md-left">Lugar de Partida: Huamanga</h6>
-                        <h6 class="text-md-left">Lugar de destino: Huanta</h6>
-                        <div class="rating">
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star1"></i>
-                            <i class="bi bi-star-fill star1"></i>
-                            <i class="bi bi-star-fill star1"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
-                        <img src="../../img/miban3.jpg" style="height: 150px;"><br><br>
-                        <h3 class="mb-2">Conductor Juanito</h3>
-                        <h6 class="text-md-left">Lugar de Partida: Huamanga</h6>
-                        <h6 class="text-md-left">Lugar de destino: Huanta</h6>
-                        <div class="rating">
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star1"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
-                        <img src="../../img/miban2.jpg" style="height: 150px;"><br><br>
-                        <h3 class="mb-2">Conductor Juanito</h3>
-                        <h6 class="text-md-left">Lugar de Partida: Huamanga</h6>
-                        <h6 class="text-md-left">Lugar de destino: Huanta</h6>
-                        <div class="rating">
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                            <i class="bi bi-star-fill star"></i>
-                        </div>
-                    </div>
-                </div>
+
+                <?php
+                    }
+                ?>
+
             </div>
         </div>
     </div>
@@ -269,7 +253,7 @@ include("../../drivers/config//conexion.php");
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="../../img/nosotros.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="../../img/nosotros.jpeg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
@@ -278,7 +262,7 @@ include("../../drivers/config//conexion.php");
                         <h1 class="mb-3">Ofrecemos reservaciones de pasajes de vehiculos terrestres a losmejores precios</h1>
                         <p>Reserva tu viaje con nosotros y disfruta de la mejor experiencia. Encontraras pasajes para buses,
                             autos y minibans a destinos interprovinciales, con los mejores precios y la mejor atención.
-                            Puedes reservar online por nuestro sitio web. ¡Reserva tu viaje YAA!</p>
+                            Puedes reservar online por nuestro sitio web. ¡Reserva tu viaje Ahora!</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="../../img/about-1.jpg" alt="">
