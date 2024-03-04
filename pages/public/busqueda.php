@@ -152,6 +152,7 @@ else{
             $i = $i + $consult['calificacion_conductor'];
             ++$contador;
         }
+        
         $calificacion = (int)(($i / $contador) + 0.5);       //calificacion
 
         $consulta4 = "SELECT * FROM vehiculos WHERE conductor_id = $con";

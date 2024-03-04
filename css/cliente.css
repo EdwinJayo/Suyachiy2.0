@@ -17,6 +17,12 @@
     margin-top: 10px;
 }
 
+.btnreserva.span{
+    vertical-align: middle;
+    align-items: center;
+    vertical-align: middle;
+}
+
 .star{      /*para las estrellas*/
     color: #ffff00;
     font-size: 25px;
@@ -27,6 +33,15 @@
     font-size: 25px;
 }
 
+#star2{
+    font-size: 25px;
+}
+
+#star2:hover{
+    color: #ffff00;
+    cursor: pointer;
+    font-size: 27px;
+}
 
 .imgpago{
     height: 50px;
@@ -61,4 +76,8 @@
     height: 50px;
     width: 150px;
     border: 2px solid #72ff1b;
+}
+
+.bg-primary{
+    color:#ffff;
 }

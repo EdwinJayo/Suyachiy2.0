@@ -23,7 +23,7 @@ if($consulta){
             $_SESSION['apellidos']   = $consulta['apellido'];
             $_SESSION['fotoPerfil']  = $consulta['foto_perfil'];
             
-            header('Location: ../../pages/conductores/perfil.php'); //Redireccionar a la pagina perfil de conductor
+            header('Location: ../../pages/conductores/index.php'); //Redireccionar a la pagina perfil de conductor
         }
 
         else{

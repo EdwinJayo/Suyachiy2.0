@@ -43,19 +43,19 @@
                             <h3>Registrarse</h3>
                         </div>
                         <div class="form-floating mb-3 required">
-                            <input type="text" name="nombre" class="form-control" id="floatingText" placeholder="Ejm: Diego Andre" required>
+                            <input type="text" name="nombre" class="form-control" id="floatingText"  required>
                             <label for="floatingText">Nombres</label>
                         </div>
                         <div class="form-floating mb-3 required">
-                            <input type="text" name="apellidos" class="form-control" id="floatingText" placeholder="Ejm: Chipana Perales" required>
+                            <input type="text" name="apellidos" class="form-control" id="floatingText"  required>
                             <label for="floatingText">Apellidos</label>
                         </div>
                         <div class="form-floating mb-3 required">
-                            <input type="email" name="correo" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                            <input type="email" name="correo" class="form-control" id="floatingInput"  required>
                             <label for="floatingInput">Email</label>
                         </div>
                         <div class="form-floating mb-4 required">
-                            <input type="password" name="contraseña" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+                            <input type="password" name="contraseña" class="form-control" id="floatingPassword"  required>
                             <label for="floatingPassword">Contraseña</label>
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
