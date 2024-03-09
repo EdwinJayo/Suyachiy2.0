@@ -98,7 +98,7 @@
         <div class="container-fluid booking mt-5 pb-4">
             <div class="container pb-5">
                 <div class="bg-primary shadow row resultado" style="padding: 0px; border-radius: 10px;">
-                    <div>
+                    <div style="color: white;">
                         <p>Reserva</p>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="container pb-5">
                 <div class="bg-primary shadow row resultado" style="padding: 0px; border-radius: 10px;">
-                    <div>
+                    <div style="color: white;">
                         <p>Viaje</p>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
             </div>
             <div class="container pb-5">
                 <div class="bg-primary shadow row resultado" style="padding: 0px; border-radius: 10px;">
-                    <div>
+                    <div style="color: white;">
                         <p>Vehículo</p>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
             </div>
             <div class="container pb-5">
                 <div class="bg-primary shadow row resultado" style="padding: 0px; border-radius: 10px;">
-                    <div>
+                    <div style="color: white;">
                         <p>Concuctor</p>
                     </div>
                 </div>
