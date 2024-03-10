@@ -9,6 +9,7 @@ $destino  = $_POST["destino"];          //DEL FORMULARIO
 $fecha    = $_POST["fecha"];
 $hora     = $_POST["hora"];
 $precio   = $_POST["precio"];
+$plazas   = $_POST["plazas"];
 $id       = $_SESSION['id'];
 
 $consulta5 = "SELECT * FROM ubicaciones WHERE ubicacion = '$origen'";
@@ -23,13 +24,14 @@ $consulta6 = mysqli_fetch_array($consulta6);
 
 $idDestino = $consulta6['id_ubicacion'];      //id destino
 
-$sql = "INSERT INTO viajes (conductor_id,origen_id,destino_id,fecha_salida,precio)
-    VALUES ('$id','$idOrigen','$idDestino','$fecha','$precio')";
+$sql = "INSERT INTO viajes (conductor_id, origen_id, destino_id, precio, plazas_disponibles, fecha_salida, hora, estado)
+    VALUES ('$id','$idOrigen','$idDestino','$precio','$plazas','$fecha','$hora',1)";
 
 //ejecutamos y verificamos si se guardaron los datos
 if (mysqli_query($conexion, $sql)) {
 
-    header('Location: ../../pages/conductores/estadoRuta.php');
+    echo "Estableciste con exito tu viaje";
+    echo "<br> <a href='../../pages/conductores/estadoRuta.php'>Ir a mis Viajes</a></div>";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
 }

@@ -8,7 +8,7 @@ $id = $_SESSION['id']
 
 <head>
     <meta charset="utf-8">
-    <title>Mis Rutas</title>
+    <title>Historial de Rutas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -38,7 +38,7 @@ $id = $_SESSION['id']
     ?>
     <br>
     <div>
-        <div style="text-align: center;"><h5>Mis rutas:</h5>
+        <div style="text-align: center;"><h5>Historial de rutas(viajes realizadas):</h5>
     </div>
     <br><br><br>
 
@@ -46,7 +46,7 @@ $id = $_SESSION['id']
     
         
     <?php
-    $consulta = "SELECT * FROM viajes WHERE estado = 1 AND conductor_id=$id";
+    $consulta = "SELECT * FROM viajes WHERE estado = 0 AND conductor_id=$id";
     $datos = mysqli_query($conexion, $consulta);
     while ($fila = mysqli_fetch_array($datos)) {
         $ori = $fila['origen_id'];
@@ -54,9 +54,19 @@ $id = $_SESSION['id']
         $idViaje = $fila['id_viaje'];
         
         $precio = $fila['precio'];              //precio
-        $plaza = $fila['plazas_disponibles'];   //plazas disponibles
         $fechaSalida = $fila['fecha_salida'];   //fecha salida
         $hora = $fila['hora'];                  //hora
+
+        $consulta3 = "SELECT * FROM calificaciones_conductores WHERE conductor_id = $id";
+        $consulta3 = mysqli_query($conexion, $consulta3);
+        $i = 0;
+        $contador = 0;
+        while ($consult = mysqli_fetch_array($consulta3)) {
+            $i = $i + $consult['calificacion_conductor'];
+            ++$contador;
+        }
+        
+        $calificacion = (int)(($i / $contador) + 0.5);       //calificacion
 
         $consulta4 = "SELECT * FROM vehiculos WHERE conductor_id = $id";
         $consulta4 = mysqli_query($conexion, $consulta4);
@@ -96,7 +106,6 @@ $id = $_SESSION['id']
                             <h5>Hora: <?php echo $hora ?></h5>
                             <h5>Marca/Vehiculo: <?php echo $marca ?></h5>
                             <h5>Modelo/Vehiculo: <?php echo $modelo ?></h5>
-                            <h5>Plazas disponibles: <?php echo $plaza ?></h5>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-4" style="font-size: 2rem;font-family: 'Courier New', Courier, monospace;">
@@ -105,6 +114,30 @@ $id = $_SESSION['id']
                                 <span>S/.</span>
                             </div>
                             <p><?php echo $precio ?></p>
+                        </div>
+                        <div class="calificacion" style="text-align: center;">
+                            <div class="rating">
+
+                                <?php //PARA LAS ESTRELLAS DE CALIFICACION
+                                for ($iter = 1; $iter <= $calificacion; $iter++) {
+
+                                ?>
+
+                                    <i class="bi bi-star-fill star"></i>
+
+                                <?php
+                                }
+                                for ($ite = 1; $ite <= (5 - $calificacion); $ite++) {
+
+                                ?>
+
+                                    <i class="bi bi-star-fill star1"></i>
+
+                                <?php
+                                }
+                                ?>
+
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-4 my-4">

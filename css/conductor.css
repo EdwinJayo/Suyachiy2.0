@@ -1,4 +1,4 @@
-/*establecer ruta*/
+/*-----------establecer ruta Start--------------------*/
 .dest{
 height: 47px; 
 width: 150px; 
@@ -6,16 +6,77 @@ margin-top: -2px;
 margin-left: 40px;
 }
 
-.pruebaaa{
-    border: 2px solid #de1717;
+.centreado{
+    border-radius: 20px;
 }
 
-.centreado{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.montado{
+    width: 250px;
+    height: 250px;
+    margin-top: -150px;
+    margin-left: 400px;
 }
+.fontt{
+    color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.color{
+    background: #1c6ab9;
+}
+/*-----------establecer ruta end--------------------*/
+
+/*-----------estado ruta Start--------------------*/
+#foto{
+    width: 230px;
+    max-height: 200px;
+    border-radius: 20px;
+}
+.resultado{
+
+    align-items: center;
+}
+/*-----------estado ruta end--------------------*/
+
+/*-----------Historial de rutas Start --------------------*/
+.star{      /*para las estrellas*/
+    color: #ffff00;
+    font-size: 25px;
+}
+
+.star1{
+    color:rgb(185, 185, 185);
+    font-size: 25px;
+}
+
+/*---------------- Historial de rutas End ---------------------------*/
+
+/*-----------ver calificacion Start --------------------*/
+.star2{      /*para las estrellas*/
+    color: #ffff00;
+    font-size: 75px;
+}
+
+.star3{
+    color:rgb(185, 185, 185);
+    font-size: 75px;
+}
+
+.star4{      /*para las estrellas*/
+    color: #ffff00;
+    font-size: 40px;
+}
+
+.star5{
+    color:rgb(185, 185, 185);
+    font-size: 40px;
+}
+
+/*---------------- ver calificacion End ---------------------------*/
+
+
 /*---------------- Buscar ruta ---------------------------*/
+
 
 .fot{
     width: 350px;
@@ -24,10 +85,7 @@ margin-left: 40px;
     border-radius: 50%;
 }
 
-.resultado{
 
-    align-items: center;
-}
 
 .btnreserva{
     width: 200px;
@@ -38,4 +96,9 @@ margin-left: 40px;
 .margenn{
     margin-left: 10px;
     margin-right: 10px;
+}
+
+
+.pruebaaa{
+    border: 2px solid #1c6ab9;
 }

@@ -1,6 +1,8 @@
 <?php
 include("../../drivers/config//conexion.php");
 include_once("../../drivers/config/sesion.php");
+$fotoPerfil = $_SESSION['fotoPerfil'];
+$id = $_SESSION['id']
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,10 +40,18 @@ include_once("../../drivers/config/sesion.php");
     <br><br><br><br>
     <!-- establecer ruta Start -->
     <div class="container-fluid booking mt-5 pb-5 row">
-        <div class="container pb-5 col-md-6">
+        <div class="col-md-1"></div>
+        <div class="container pb-5 col-md-5 color">
             <div style="padding: 30px;">
-                <h5>Establecer Ruta:</h5>
-                <img src="../../img/auto.jpg" style="height: 300px; border: 10px solid #1c6ab9" class="centreado"><br><br>
+                <h4 class="fontt">Establecer Ruta:</h4>
+                <?php
+                $consulta = "SELECT * FROM vehiculos WHERE conductor_id = $id";
+                $consulta = mysqli_query($conexion, $consulta);
+                $consulta = mysqli_fetch_array($consulta); 
+                $fotoVe = $consulta['foto_vehiculo'];  //foto_vehiculo
+                ?>
+                <img src="../../<?php echo $fotoVe ?>" style="height: 300px;" class="centreado"><br><br>
+                <img class="rounded-circle me-lg-2 montado" src="../../<?php echo $fotoPerfil ?>">
             </div>
         </div>
         <div class="container pb-5 col-md-6">
@@ -52,10 +62,10 @@ include_once("../../drivers/config/sesion.php");
                             <div>
                                 <div>
                                     <div class="mb-3 mb-md-0">Origen:
-                                        <select class="custom-select px-4" style="height: 47px;" name="origen">
-
+                                        <select class="custom-select px-4" style="height: 47px;" name="origen" required>
+                                            <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -71,10 +81,10 @@ include_once("../../drivers/config/sesion.php");
                                 </div>
                                 <div>
                                     <div class="mb-3 mb-md-0">Destino:
-                                        <select class="custom-select px-4" style="height: 47px;" name="destino">
-
+                                        <select class="custom-select px-4" style="height: 47px;" name="destino" required>
+                                            <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -90,44 +100,49 @@ include_once("../../drivers/config/sesion.php");
                                 <div>
                                     <div class="mb-3 mb-md-0">Fecha:
                                         <div class="date" id="date1" data-target-input="nearest">
-                                            <input type="text" name="fecha" class="form-control p-4 datetimepicker-input" placeholder="Fecha" data-target="#date1" data-toggle="datetimepicker" />
+                                            <input type="text" name="fecha" class="form-control p-4 datetimepicker-input" data-target="#date1" data-toggle="datetimepicker" required/>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="mb-3 mb-md-0">hora:
-                                        <select class="custom-select px-4" style="height: 47px;" name="hora">
-                                            <option selected>Sin establecer</option>
-                                            <option value="1">01:00</option>
-                                            <option value="2">02:00</option>
-                                            <option value="3">03:00</option>
-                                            <option value="4">04:00</option>
-                                            <option value="5">05:00</option>
-                                            <option value="6">06:00</option>
-                                            <option value="7">07:00</option>
-                                            <option value="8">08:00</option>
-                                            <option value="9">09:00</option>
-                                            <option value="10">10:00</option>
-                                            <option value="11">11:00</option>
-                                            <option value="12">12:00</option>
-                                            <option value="13">13:00</option>
-                                            <option value="14">14:00</option>
-                                            <option value="15">15:00</option>
-                                            <option value="16">16:00</option>
-                                            <option value="17">17:00</option>
-                                            <option value="18">18:00</option>
-                                            <option value="19">19:00</option>
-                                            <option value="20">20:00</option>
-                                            <option value="21">21:00</option>
-                                            <option value="22">22:00</option>
-                                            <option value="23">23:00</option>
-                                            <option value="24">00:00</option>
+                                        <select class="custom-select px-4" style="height: 47px;" name="hora" required>
+                                            <option hidden selected></option>
+                                            <option>01:00:00</option>
+                                            <option>02:00:00</option>
+                                            <option>03:00:00</option>
+                                            <option>04:00:00</option>
+                                            <option>05:00:00</option>
+                                            <option>06:00:00</option>
+                                            <option>07:00:00</option>
+                                            <option>08:00:00</option>
+                                            <option>09:00:00</option>
+                                            <option>10:00:00</option>
+                                            <option>11:00:00</option>
+                                            <option>12:00:00</option>
+                                            <option>13:00:00</option>
+                                            <option>14:00:00</option>
+                                            <option>15:00:00</option>
+                                            <option>16:00:00</option>
+                                            <option>17:00:00</option>
+                                            <option>18:00:00</option>
+                                            <option>19:00:00</option>
+                                            <option>20:00:00</option>
+                                            <option>21:00:00</option>
+                                            <option>22:00:00</option>
+                                            <option>23:00:00</option>
+                                            <option>00:00:00</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="mb-3 mb-md-0">Precio:
-                                            <input type="number" min="0" step=".01" name="precio" class="form-control p-4 datetimepicker-input" placeholder="Precio"/>
+                                            <input type="number" min="0" step=".01" name="precio" class="form-control p-4" required/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mb-3 mb-md-0">Plazas disponibles:
+                                            <input type="number" min="0" name="plazas" class="form-control p-4" required/>
                                     </div>
                                 </div>
                             </div>
