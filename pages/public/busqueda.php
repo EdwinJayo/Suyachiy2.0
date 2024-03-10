@@ -241,6 +241,9 @@ else{
     }
     ?></div>
     <!-- Contenidos End-->
+    <div class="foto">
+
+    </div>
 
     <!-- Footer Start -->
     <?php

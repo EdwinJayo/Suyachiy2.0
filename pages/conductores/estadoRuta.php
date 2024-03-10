@@ -7,11 +7,12 @@ include_once("../../drivers/config/sesion.php");
 
 <head>
     <meta charset="utf-8">
-    <title>Mi Perfil</title>
+    <title>Mis Rutas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
     <link rel="stylesheet" href="../../css/conductor.css">
+    <link rel="stylesheet" href="../../css/public.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -35,7 +36,11 @@ include_once("../../drivers/config/sesion.php");
     <?php
     include "../../inc/conductores/header.php";
     ?>
-    <br><br><br><br>
+    <br>
+    <div>
+        <div style="text-align: center;"><h5>Mis rutas:</h5>
+    </div>
+    <br><br><br>
 
     <!-- Contenidos Start-->
     
@@ -43,7 +48,7 @@ include_once("../../drivers/config/sesion.php");
     <?php
     $consulta = "SELECT * FROM viajes";
     $datos = mysqli_query($conexion, $consulta);
-    $fila = mysqli_fetch_array($datos);
+    while ($fila = mysqli_fetch_array($datos)) {
         $con = $fila['conductor_id'];
         $ori = $fila['origen_id'];
         $des = $fila['destino_id'];
@@ -94,45 +99,53 @@ include_once("../../drivers/config/sesion.php");
 
 
         <div class="container-fluid booking mt-5 pb-4">
-            <div class="margenn">
-                <h5>Mis Datos:</h5>
-                <div class="row resultado" style="padding: 0px;">
-                    <div class="col-lg-1">
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-3">
-                        <div>
-                            <img src="../../img/conductores/<?php echo $email . "/" . $fotoVe ?>" class="fot" alt="...">
+            <div class="container pb-5">
+                <div class="bg-light shadow row resultado" style="padding: 0px; border-radius: 10px;">
+                    <div class="col-xs-12 col-sm-6 col-lg-4">
+                        <div class="foto">
+                            <img src="../../img/conductores/<?php echo $email . "/" . $fotoVe ?>" class="rounded mx-auto d-block" id="foto" alt="...">
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-3">
-                        <div>
-                            <img src="../../img/conductores/<?php echo $email . "/" . $fotoVe ?>" class="fot" alt="...">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-2 my-4">
+                    <div class="col-xs-12 col-sm-6 col-lg-4 my-4">
                         <div style="font-family: 'Courier New', Courier, monospace;">
                             <h6>Conductor: <?php echo $nombre . " " . $apellido ?></h6>
-                            <h6>fecha de nacimiento:</h6>
-                            <h6>Edad:</h6>
-                            <h6>genero:</h6>
+                            <h6>De: <?php echo $origen ?></h6>
+                            <h6>A: <?php echo $destino ?></h6>
+                            <h6>fecha/hora: <?php echo $fechaSalida ?></h6>
+                            <h6>Marca/Vehiculo: <?php echo $marca ?></h6>
+                            <h6>Modelo/Vehiculo: <?php echo $modelo ?></h6>
+                            <h6>Capacidad pasajeros: <?php echo $capacidadPa ?></h6>
                         </div>
                     </div>
-                    <div class="col-lg-1">
-                            <button class="btn btn-primary btn-block" type="submit" name="enviar" value="fff" style="height: 60px; margin-top: -2px;">Cargar Requisitos</button>
-
+                    <div class="col-xs-12 col-sm-6 col-lg-4" style="font-size: 2rem;font-family: 'Courier New', Courier, monospace;">
+                        <div style="text-align: center;">
+                            <div>
+                                <span>S/.</span>
+                            </div>
+                            <p><?php echo $precio ?></p>
+                        </div>
                     </div>
-                    <div class="col-lg-1">
-                            <button class="btn btn-primary btn-block" type="submit" name="enviar" value="fff" style="height: 60px; margin-top: -2px;">Editar Datos</button>
-
+                    <div class="col-xs-12 col-sm-6 col-lg-4 my-4">
+                        <div style="font-family: 'Courier New', Courier, monospace;">
+                            <h4>Personas que reservaron:</h4>
+                        </div>
                     </div>
-
+                    <div class="col-xs-12 col-sm-6 col-lg-4 my-4">
+                        <div style="font-family: 'Courier New', Courier, monospace;">
+                            <h6>1. <?php echo $nombre . " " . $apellido ?></h6>
+                            <h6>2. <?php echo $nombre . " " . $apellido ?></h6>
+                            <h6>3. <?php echo $nombre . " " . $apellido ?></h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php
+    }
+    ?></div>
     <!-- Contenidos End-->
 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
     <?php
     include "../../inc/conductores/footer.php";
     ?>
