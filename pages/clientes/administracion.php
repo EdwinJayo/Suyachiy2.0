@@ -299,13 +299,18 @@
                     </div>
                         <div class="tab-pane" id="notification">
                             <h6>AJUSTE DE LAS NOTIFICACIONES</h6>
+                            <hr>
                             <?php
                                 $id=$_SESSION['id'];
                                 $consulta="SELECT * FROM notificaciones WHERE usuario_id=$id";
                                 $consulta=mysqli_query($conexion,$consulta);
+                                $filas=mysqli_num_rows($consulta);
                                 $consulta=mysqli_fetch_array($consulta);
+                                if($filas== 0) {
+                                    echo "<div><h4>No puedes configurar tus notificaciones</h4></div>";
+                                }else{
                             ?>
-                            <hr>
+
                             <form action="../../drivers/clientes/actualizarnotif.php" method="post">
                                 <div class="form-group">
                                     <label class="d-block mb-0">Alertas de Seguridad</label>
@@ -395,6 +400,9 @@
                                     <button type="reset" class="btn btn-secondary" id="cancelar-info">Cancelar</button>
                                 </div>
                             </form>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div class="tab-pane" id="billing">
                             <h6>AJUSTE DE LOS MÉTODOS DE PAGO</h6>

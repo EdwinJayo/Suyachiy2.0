@@ -35,17 +35,17 @@
             overflow: hidden;
         }
 
-        .card-title a:link {
-            font-size: 30px;
-            background-color: transparent;
-            color: #000000;
-            text-decoration: none;
+        .btn123 {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .card-title a:hover {
-            color: red;
-            background-color: transparent;
-            text-decoration: underline;
+        .btn123:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+            opacity: 0.9;
         }
     </style>
     <script type='text/javascript' src=''></script>
@@ -63,44 +63,15 @@
                     <h2 class="mb-3 text-primary">Recuerda los lugares que visitaste</h2>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <img src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg" class="card-image-top" alt="thumbnail">
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">What is HTML</a></h3>
-                            <p class="card-text">HTML stands for Hyper Text Markup Language, It helps to learn web development and designing. </p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                    <a href="viaje.php">
+                        <div class="card my-3 btn123">
+                        <img src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg" class="card-img-top" alt="thumbnail">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">DESTINO</h3>
+                                <p class="card-text">descripcion</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <img src="https://images.pexels.com/photos/3848158/pexels-photo-3848158.jpeg" class="card-image-top" alt="thumbnail">
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Why We Use HTML</a></h3>
-                            <p class="card-text">We use HTML to make website and that website helps to gain very much knowledge.Pellentesque dictum consequat tincidunt. Sed tincidunt tortor nec vulputate gravida.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <img src="https://images.pexels.com/photos/2343170/pexels-photo-2343170.jpeg" class="card-image-top" alt="thumbnail">
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Where do people came from?</a></h3>
-                            <p class="card-text">Pellentesque dictum consequat tincidunt. Sed tincidunt tortor nec vulputate gravida. Nam sapien nisi, malesuada at sapien suscipit,</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <img src="https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg" class="card-image-top" alt="thumbnail">
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">What is Lorem Ipsum?</a></h3>
-                            <p class="card-text">Pellentesque dictum consequat tincidunt. Sed tincidunt tortor nec vulputate gravida. Nam sapien nisi, malesuada at sapien suscipit.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
