@@ -38,6 +38,7 @@
         locale: 'es',
         format: 'L',
     });
+
     $('.time').datetimepicker({
         format: 'TL'
     });
