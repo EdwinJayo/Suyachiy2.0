@@ -49,33 +49,30 @@
                                 <div class="col-md-3">
                                     <div class="mb-3 mb-md-0">Origen:
                                         <select class="custom-select px-4" style="height: 47px;" name="origen">
-
                                             <?php
                                             $consulta = "SELECT ubicacion FROM ubicaciones";
                                             $datos = mysqli_query($conexion, $consulta);
-
                                             while ($fila = mysqli_fetch_array($datos)) {
                                             ?>
-
-                                                <option><?php echo $fila['ubicacion'] ?></option>
-
+                                                <option value="<?php echo $fila['ubicacion'] ?>"><?php echo $fila['ubicacion'] ?></option>
                                             <?php
                                             }
                                             ?>
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-3">
                                     <div class="mb-3 mb-md-0">Destino:
                                         <select class="custom-select px-4" style="height: 47px;" name="destino">
 
                                             <?php
                                             $consulta = "SELECT ubicacion FROM ubicaciones";
-                                            $datos = mysqli_query($conexion, $consulta);
-
+                                            $datos = mysqli_query($conexion, $consulta);?>
+                                            <?php
                                             while ($fila = mysqli_fetch_array($datos)) {
                                             ?>
-                                                <option><?php echo $fila['ubicacion'] ?></option>
+                                                <option value="<?php echo $fila['ubicacion'] ?>"><?php echo $fila['ubicacion'] ?></option>
 
                                             <?php
                                             }
@@ -203,6 +200,13 @@
     <?php
         include_once("../../inc/clientes/footer.php"); 
     ?> 
+
+    <script>
+        $("[name='enviar']").click(function (e) { 
+            e.preventDefault();
+            $("option").val();
+        });
+    </script>
 </body>
 
 </html>

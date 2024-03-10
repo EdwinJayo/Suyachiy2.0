@@ -23,7 +23,7 @@ if ($consulta) {
             $_SESSION['nombre']      = $consulta['nombre'];
             $_SESSION['apellidos']   = $consulta['apellido'];
             $_SESSION['fotoPerfil']  = $consulta['foto_perfil'];
-
+            $_SESSION['fecha']  = $consulta['fecha_registro'];
             header('Location: ../../pages/clientes/index.php'); //Redireccionar a la pagina home de clientes
         }
 

@@ -18,7 +18,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="../../img/default.jpg" alt="" style="width: 28px; height: 28px;">
+                            <img class="rounded-circle me-lg-2" src="../../<?php echo $_SESSION['fotoPerfil']?>" alt="" style="width: 28px; height: 28px;">
                             <span>
                                 <?php
                                     echo $_SESSION['nombre'];
@@ -29,7 +29,7 @@
                             </span> </a>
                         <div class="dropdown-menu border-0 rounded-0 m-0">
                             <a href="administracion.php" class="dropdown-item">Administrar cuenta</a>
-                            <a href="historial.php" class="dropdown-item">Historial de Reservaciones</a>
+                            <a href="viajes.php" class="dropdown-item">Historial de Reservaciones</a>
                             <a href="salir.php" class="dropdown-item">Salir</a>
                         </div>
                     </div>
