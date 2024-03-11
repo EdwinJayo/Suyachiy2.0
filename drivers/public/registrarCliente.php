@@ -27,6 +27,7 @@ if(!$consultaId){ //si la consulta esta vacia entonces significa que no existe e
     //ejecutamos y verificamos si se guardaron los datos
     if (mysqli_query($conexion, $sql)){
         mkdir("../../img/clientes/$correo");//creamos una carpeta en imagenes para el cliente
+        mkdir("../../img/clientes/$correo/galeria");
         copy("../../img/default.jpg", "../../img/clientes/$correo/perfil.jpg"); //copiamos nuestra foto por default
 
         $_SESSION['login']       = true;                //$_SESSION es una variable superglobal

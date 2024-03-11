@@ -55,6 +55,9 @@
 <body oncontextmenu='return false' class='snippet-body'>
 <?php
     include_once("../../inc/clientes/header.php");
+    $consulta="SELECT 
+     
+    FROM viajes as v"
     ?> 
     <section class="bg-light py-4 my-5">
         <div class="container">

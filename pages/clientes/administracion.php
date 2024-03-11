@@ -495,10 +495,14 @@
 	        $('#ShowPassword').click(function () {
 		        $('#'+id).attr('type', $(this).is(':checked') ? 'text' : 'password');
 	        });
-            $("#formFile").click(function () {
-                $(".submit-foto").removeAttr("hidden");
+
+            $("#formFile").change(function () {
+                if ($(this).val() != "") {
+                    $(".submit-foto").removeAttr("hidden");
+                } else {
+                    $(".submit-foto").attr("hidden", "hidden");
+                }
             });
-            
             $('#pass_n').on('keyup', validarContraseñas);
             $('#pass_cn').on('keyup', validarContraseñas);
 
