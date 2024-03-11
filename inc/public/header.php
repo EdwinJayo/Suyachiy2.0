@@ -2,7 +2,7 @@
 <div class="position-relative p-0 px-sm-1" style="z-index: 9;">
     <nav class="navbar navbar-expand-sm bg-light navbar-light shadow-sm py-3 py-md-0 pl-3 pl-sm -5">
         <div>
-            <a href="index.html"><img class="col" src="../../img/logo.png" style="height: 60px;"></a>
+            <a href="../../pages/public/index.php"><img class="col" src="../../img/logo.png" style="height: 60px;"></a>
 
         </div>
 

@@ -102,10 +102,10 @@ session_destroy();
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="mb-3 mb-md-0">Origen:
-                                        <select class="custom-select px-4" style="height: 47px;" name="origen">
-
+                                        <select class="custom-select px-4" style="height: 47px;" name="origen" required>
+                                            <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -121,10 +121,10 @@ session_destroy();
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3 mb-md-0">Destino:
-                                        <select class="custom-select px-4" style="height: 47px;" name="destino">
-
+                                        <select class="custom-select px-4" style="height: 47px;" name="destino" required>
+                                            <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -169,6 +169,7 @@ session_destroy();
                         $con = $fila['conductor_id'];
                         $ori = $fila['origen_id'];
                         $des = $fila['destino_id'];
+                        $fechaSalida = $fila['fecha_salida'];   //fecha salida
 
                         $consulta2 = "SELECT * FROM usuarios WHERE id_usuario = $con";
                         $consulta2 = mysqli_query($conexion, $consulta2);
@@ -211,10 +212,11 @@ session_destroy();
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
 
-                        <img src="../../img/conductores/<?php echo $email."/".$fotoVe ?>" style="height: 150px;"><br><br>
+                        <img src="../../<?php echo $fotoVe ?>" style="height: 150px;"><br><br>
                         <h3 class="mb-2"><?php echo $nombre." ".$apellido ?></h3>
-                        <h6 class="text-md-left">Origen: <?php echo $origen ?></h6>
-                        <h6 class="text-md-left">Destino: <?php echo $destino ?></h6>
+                        <h6 class="text-md-left">De: <?php echo $origen ?></h6>
+                        <h6 class="text-md-left">A: <?php echo $destino ?></h6>
+                        <h6 class="text-md-left">Fecha Salida: <?php echo $fechaSalida ?></h6>
                         <div class="rating">
                             
                             <?php //PARA LAS ESTRELLAS DE CALIFICACION
