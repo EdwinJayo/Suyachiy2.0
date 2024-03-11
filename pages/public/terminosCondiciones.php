@@ -37,26 +37,60 @@
     <div class="container-fluid">
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h3 >Terminos y condiciones</h3>
-                    </div>
-                    <p>Reserva tu viaje con nosotros y disfruta de la mejor experiencia. Encontraras pasajes para buses, 
-                        autos y minibans a destinos interprovinciales, con los mejores precios y la mejor atención. 
-                        Puedes reservar online por nuestro sitio web. ¡Reserva tu viaje YAA!</p><br>
-                    <p> Reserva tu viaje con nosotros y disfruta de la mejor experiencia. Encontraras pasajes para buses, 
-                        autos y minibans a destinos interprovinciales, con los mejores precios y la mejor atención. 
-                        Puedes reservar online por nuestro sitio web. ¡Reserva tu viaje YAA!</p>
-                    
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Aceptar los terminos y condiciones</label>
+                <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3 ">
+                    <form action="registroConductor.php">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3>Terminos y condiciones</h3>
                         </div>
-                    </div>
+                        <div class="vertical">
+                            <p> Por favor, lee atentamente nuestros términos y condiciones antes de utilizar nuestros servicios.
+                                Al hacer uso de nuestros servicios, estás aceptando estos términos y condiciones en su totalidad.</p>
+                            <p> Nuestra empresa se dedica exclusivamente a la venta de pasajes para viajes en vehículos terrestres interprovinciales.
+                                Actuamos como intermediarios entre los conductores y los pasajeros, facilitando la reserva y adquisición de pasajes.<br><br>
 
-                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='registroConductor.php'" >Continuar</button>
-                    <p class="text-center mb-0"><a href="loginConductor.php">Regresar</a></p>
+                                Los pasajeros pueden realizar reservas a través de nuestro sitio web o de manera presencial en nuestras oficinas.
+                                El pago de los pasajes se realiza en el momento de la reserva y puede ser realizado en efectivo, mediante tarjeta
+                                de crédito o débito, o por otros medios de pago disponibles.<br><br>
+
+                                Las reservas están sujetas a disponibilidad y serán confirmadas una vez recibido el pago correspondiente.
+                                El pasajero recibirá un comprobante de reserva que deberá presentar al conductor antes del embarque.<br><br>
+
+                                Las modificaciones en las reservas están sujetas a disponibilidad y pueden estar sujetas a cargos adicionales.
+                                Las cancelaciones están sujetas a una política de cancelación que puede implicar cargos por cancelación dependiendo
+                                de la antelación con la que se realice la cancelación.<br><br>
+
+                                Los pasajeros deben presentarse al punto de embarque con la debida antelación y con el comprobante de reserva.
+                                Los pasajeros son responsables de asegurar que su equipaje cumpla con las normativas establecidas por la empresa
+                                y las autoridades competentes.<br><br>
+
+                                Nos comprometemos a proporcionar un servicio seguro y de calidad, seleccionando cuidadosamente a los conductores y
+                                vehículos que forman parte de nuestra red de servicios.
+                                Nos comprometemos a brindar asistencia y soporte a los pasajeros en caso de cualquier inconveniente durante el viaje.<br><br>
+
+                                La empresa no se hace responsable por retrasos, cancelaciones o cualquier otro inconveniente que pueda surgir
+                                durante el viaje y que esté fuera de nuestro control.
+                                La responsabilidad de la empresa se limita al monto pagado por el pasaje.<br><br>
+
+                                La empresa se compromete a proteger la privacidad de los datos personales de los clientes
+                                de acuerdo con las leyes y regulaciones aplicables.<br><br>
+
+                                La empresa se reserva el derecho de modificar estos términos y condiciones en cualquier momento.
+                                Las modificaciones entrarán en vigor a partir de su publicación en nuestro sitio web.<br>
+                                Al hacer uso de nuestros servicios, estás aceptando estos términos y condiciones en su totalidad.
+                                Si no estás de acuerdo con alguno de los términos aquí establecidos, por favor abstente de utilizar nuestros servicios.
+
+                                Fecha de entrada en vigor: [11/03/2024]</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                                <label class="form-check-label" for="exampleCheck1">Aceptar los terminos y condiciones</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Continuar</button>
+                        <p class="text-center mb-0"><a href="loginConductor.php">Regresar</a></p>
+                    </form>
                 </div>
             </div>
         </div>

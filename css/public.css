@@ -29,3 +29,11 @@
     height: 100px;
     margin-top: 10px;
 }
+
+/*---------------- temrinos y condiciones Star ----------------*/
+.vertical
+{
+    /*border: 2px solid #ffff00;*/
+    height: 400px;
+    overflow-y: scroll;
+}
