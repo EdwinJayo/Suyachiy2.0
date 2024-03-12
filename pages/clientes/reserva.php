@@ -48,8 +48,9 @@
             header('Location: reservas.php');
         }
         $consulta="SELECT
+                    up.id_usuario as ip,
                     r.fecha_reserva as fr,r.estado_reserva as er,
-                    v.id_viaje as iv,v.fecha_salida as fs,v.fecha_llegada as fl,v.precio as p,
+                    v.id_viaje as iv,v.fecha_salida as fs,v.hora as h,v.precio as p,
                     ul.ubicacion as ul,
                     us.ubicacion as us,
                     uc.nombre as nc,uc.apellido as ac,uc.foto_perfil as fc,uc.email as ec, uc.id_usuario as ic,
@@ -73,11 +74,12 @@
                     
         $datos = mysqli_query($conexion, $consulta);
         while ($fila = mysqli_fetch_array($datos)) {
+            $ip= $fila["ip"];
             $fr = $fila['fr'];
             $er = $fila['er'];
             $iv= $fila['iv'];
             $fs = $fila['fs'];
-            $fl = $fila['fl'];
+            $h = $fila['h'];
             $p = $fila['p'];
             $ul= $fila['ul'];
             $us= $fila['us'];
@@ -94,6 +96,8 @@
         }
         $consulta1 = "SELECT id_calificacion_conductor,calificacion_conductor,comentario_conductor,nombre,apellido,foto_perfil FROM calificaciones_conductores INNER JOIN usuarios ON pasajero_id=id_usuario WHERE conductor_id = $ic";
         $datos1 = mysqli_query($conexion, $consulta1);
+        $consulta2 = "SELECT id_calificacion_conductor FROM calificaciones_conductores INNER JOIN usuarios ON pasajero_id=id_usuario WHERE conductor_id = $ic AND  pasajero_id=$ip";
+        $datos2 = mysqli_query($conexion, $consulta2);
         ?>
         <div class="container-fluid booking mt-5 pb-4">
             <div class="container pb-5">
@@ -120,7 +124,7 @@
                         <h6>Destino: <?php echo $ul ?></h6>
                         <h6>Parte de: <?php echo $us ?></h6>
                         <h6>Sale el: <?php echo $fs ?></h6>
-                        <h6>Llega el: <?php echo $fl ?></h6>
+                        <h6>Llega el: <?php echo $h ?></h6>
                         <h6>
                             <p>Precio: 
                                 <span>S/.</span>
@@ -139,7 +143,7 @@
                 <div class="bg-light shadow row resultado" style="padding: 0px; border-radius: 10px;">
                     <div class="col-xs-12 col-sm-6">
                         <div class="foto">
-                            <img src="../../img/conductores/<?php echo $ec . "/" . $fv ?>" class="rounded mx-auto d-block" id="foto" alt="...">
+                            <img src="../../<?php echo $fv ?>" class="rounded mx-auto d-block" id="foto" alt="...">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -203,11 +207,11 @@
                             <p>Califica</p>
                         </div>
                         <div>
-                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(1,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo $icc ?>)"></i>
-                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(2,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo $icc ?>)"></i>
-                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(3,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo $icc ?>)"></i>
-                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(4,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo $icc ?>)"></i>
-                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(5,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo $icc ?>)"></i>
+                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(1,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo 0; ?>)"></i>
+                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(2,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo 0; ?>)"></i>
+                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(3,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo 0; ?>)"></i>
+                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(4,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo 0; ?>)"></i>
+                            <i class="bi bi-star-fill" id="star2" type="button" onclick="calificar(5,<?php echo $ic ?>,<?php echo $iv ?>,<?php echo 0; ?>)"></i>
                         </div>
                         <div>
                             <div class="mb-3">
@@ -259,3 +263,5 @@
     ?>    
 </body>
 </html>
+
+

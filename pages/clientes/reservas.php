@@ -42,7 +42,7 @@
         $email= $_SESSION['correo'];
         $consulta="SELECT
                     r.id_reserva as ir,r.fecha_reserva as fr,r.estado_reserva as er,
-                    v.fecha_salida as fs,v.fecha_llegada as fl,v.precio as p,
+                    v.fecha_salida as fs,v.hora as h,v.precio as p,
                     ul.ubicacion as ul,
                     us.ubicacion as us,
                     uc.nombre as nc,uc.apellido as ac,uc.email as ec,
@@ -71,7 +71,7 @@
             $fr = $fila['fr'];
             $er = $fila['er'];
             $fs = $fila['fs'];
-            $fl = $fila['fl'];
+            $h = $fila['h'];
             $p = $fila['p'];
             $ul= $fila['ul'];
             $us= $fila['us'];
@@ -92,15 +92,14 @@
                 <div class="bg-light shadow row resultado" style="padding: 0px; border-radius: 10px;">
                     <div class="col-xs-12 col-sm-6 col-lg-3">
                         <div class="foto">
-                            <img src="../../img/conductores/<?php echo $ec . "/" . $fv ?>" class="rounded mx-auto d-block" id="foto" alt="...">
+                            <img src="../../<?php echo $fv ?>" class="rounded mx-auto d-block" id="foto" alt="...">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-3 my-4">
                         <div style="font-family: 'Courier New', Courier, monospace;">
                             <h6>Destino: <?php echo $ul?></h6>
                             <h6>Parte de: <?php echo $us ?></h6>
-                            <h6>Sale el: <?php echo $fs ?></h6>
-                            <h6>Llega el: <?php echo $fl ?></h6>
+                            <h6>Sale el: <?php echo $fs ?> a las <?php echo $h ?></h6>  
                             <h6>Conductor: <?php echo $nc . " " . $ac ?></h6>
                             <h6>Marca/Vehiculo: <?php echo $vm ?></h6>
                         </div>

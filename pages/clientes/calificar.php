@@ -15,9 +15,9 @@ if ($calificacion<0){
     $calificacion= 0; 
 }
 
-$consulta="SELECT conductor_id from viajes where id_viaje=$v";
+$consulta="SELECT * from reservas where id_reserva=$v";
 $datos=mysqli_query($conexion,$consulta);
-    if ($fila = mysqli_fetch_array($datos)){
+    if ($fila = mysqli_fetch_array($datos) and $cc!=0){
         $consulta = "UPDATE calificaciones_conductores SET calificacion_conductor=$calificacion,comentario_conductor='$com' WHERE id_calificacion_conductor=$cc";
         if (mysqli_query($conexion, $consulta)){
             header('Location: reservas.php');
@@ -35,4 +35,5 @@ $datos=mysqli_query($conexion,$consulta);
             header('Location: reservas.php');
         }
     }
+    
 ?>

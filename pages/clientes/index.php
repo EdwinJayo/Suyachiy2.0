@@ -1,16 +1,18 @@
 <?php
-    include_once("../../drivers/config/sesion.php");
-    include_once("../../drivers/config//conexion.php");
-?>  
+include("../../drivers/config/conexion.php");
+include("../../drivers/config/sesion.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
-    <title>Inicio - Suyachiy</title>
+    <title>Home - Suyachiy</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-    <link rel="stylesheet" href="../../css/cliente.css">
+    <link rel="stylesheet" href="../../css/public.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +23,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../css/style.css" rel="stylesheet">
@@ -32,10 +34,12 @@
 </head>
 
 <body>
-
+    <!-- Navbar Start -->
     <?php
-    include_once("../../inc/clientes/header.php");
-    ?>    
+    include "../../inc/clientes/header.php";
+    ?>
+    <!-- Navbar End -->
+
 
     <br><br><br><br>
     <!-- Buscar Start -->
@@ -48,31 +52,34 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="mb-3 mb-md-0">Origen:
-                                        <select class="custom-select px-4" style="height: 47px;" name="origen">
+                                        <select class="custom-select px-4" style="height: 47px;" name="origen" required>
+                                            <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
                                             $datos = mysqli_query($conexion, $consulta);
+
                                             while ($fila = mysqli_fetch_array($datos)) {
                                             ?>
-                                                <option value="<?php echo $fila['ubicacion'] ?>"><?php echo $fila['ubicacion'] ?></option>
+
+                                                <option><?php echo $fila['ubicacion'] ?></option>
+
                                             <?php
                                             }
                                             ?>
                                         </select>
                                     </div>
                                 </div>
-                                
                                 <div class="col-md-3">
                                     <div class="mb-3 mb-md-0">Destino:
-                                        <select class="custom-select px-4" style="height: 47px;" name="destino">
+                                        <select class="custom-select px-4" style="height: 47px;" name="destino" required>
+                                            <option hidden selected></option>
+                                            <?php
+                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
+                                            $datos = mysqli_query($conexion, $consulta);
 
-                                            <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones";
-                                            $datos = mysqli_query($conexion, $consulta);?>
-                                            <?php
                                             while ($fila = mysqli_fetch_array($datos)) {
                                             ?>
-                                                <option value="<?php echo $fila['ubicacion'] ?>"><?php echo $fila['ubicacion'] ?></option>
+                                                <option><?php echo $fila['ubicacion'] ?></option>
 
                                             <?php
                                             }
@@ -93,6 +100,7 @@
                             <button class="btn btn-primary btn-block" type="submit" name="enviar" value="fff" style="height: 47px; margin-top: -2px;">Buscar</button>
 
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -111,6 +119,7 @@
                         $con = $fila['conductor_id'];
                         $ori = $fila['origen_id'];
                         $des = $fila['destino_id'];
+                        $fechaSalida = $fila['fecha_salida'];   //fecha salida
 
                         $consulta2 = "SELECT * FROM usuarios WHERE id_usuario = $con";
                         $consulta2 = mysqli_query($conexion, $consulta2);
@@ -128,12 +137,11 @@
                             $i = $i + $consult['calificacion_conductor'];
                             ++$contador;
                         }
-                        if ($contador==0) {
-                            $calificacion = 0;
-                        }else{
+                        if ($contador ==0) {
+                            $calificacion=0;
+                        } else {
                             $calificacion = (int)(($i / $contador)+0.5);       //calificacion
                         }
-
                         $consulta4 = "SELECT * FROM vehiculos WHERE conductor_id = $con";
                         $consulta4 = mysqli_query($conexion, $consulta4);
                         $consulta4 = mysqli_fetch_array($consulta4);
@@ -156,10 +164,11 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="bg-white text-center mb-2 py-5 px-4 img-fluid">
 
-                        <img src="../../img/conductores/<?php echo $email."/".$fotoVe ?>" style="height: 150px;"><br><br>
+                        <img src="../../<?php echo $fotoVe ?>" style="height: 150px;"><br><br>
                         <h3 class="mb-2"><?php echo $nombre." ".$apellido ?></h3>
-                        <h6 class="text-md-left">Origen: <?php echo $origen ?></h6>
-                        <h6 class="text-md-left">Destino: <?php echo $destino ?></h6>
+                        <h6 class="text-md-left">De: <?php echo $origen ?></h6>
+                        <h6 class="text-md-left">A: <?php echo $destino ?></h6>
+                        <h6 class="text-md-left">Fecha Salida: <?php echo $fechaSalida ?></h6>
                         <div class="rating">
                             
                             <?php //PARA LAS ESTRELLAS DE CALIFICACION
@@ -194,19 +203,11 @@
     </div>
     <!-- Recomendaciones End -->
 
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- Footer Start -->
     <?php
-        include_once("../../inc/clientes/footer.php"); 
-    ?> 
-
-    <script>
-        $("[name='enviar']").click(function (e) { 
-            e.preventDefault();
-            $("option").val();
-        });
-    </script>
+    include "../../inc/clientes/footer.php";
+    ?>
+    <!-- Footer End -->
 </body>
 
 </html>
