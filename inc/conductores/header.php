@@ -29,7 +29,7 @@
                                 ?>
                             </span> </a>
                         <div class="dropdown-menu border-0 rounded-0 m-0">
-                            <a href="#" class="dropdown-item">Perfil</a>
+                            <a href="/pages/conductores/perfil.php" class="dropdown-item">Perfil</a>
                             <a href="../../pages/conductores/historialRutas.php" class="dropdown-item">Historial de Rutas</a>
                             <a href="../../pages/conductores/verCalificacion.php" class="dropdown-item">ver calificacion</a>
                             <a href="../../drivers/conductores/cerrarSesion.php" class="dropdown-item">Salir</a>

@@ -14,7 +14,7 @@ $consulta = mysqli_fetch_array($consulta);
 
 if ($consulta) {
     if (password_verify($password, $consulta['contraseña'])) {
-
+ 
         if ($consulta['tipo_usuario_id'] == 1) {        //para comparar si es un usuario cliente
             
             $_SESSION['login']       = true;                //$_SESSION es una variable superglobal
@@ -23,7 +23,7 @@ if ($consulta) {
             $_SESSION['nombre']      = $consulta['nombre'];
             $_SESSION['apellidos']   = $consulta['apellido'];
             $_SESSION['fotoPerfil']  = $consulta['foto_perfil'];
-            $_SESSION['fecha']  = $consulta['fecha_registro'];
+            $_SESSION['fecha']       = $consulta['fecha_registro'];
             header('Location: ../../pages/clientes/index.php'); //Redireccionar a la pagina home de clientes
         }
 

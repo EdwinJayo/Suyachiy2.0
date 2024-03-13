@@ -27,11 +27,10 @@ actualizacion=$pl1,
 noticias=$pl2 WHERE usuario_id=$id
 ";
 if (mysqli_query($conexion, $consulta)) {
-    header("Location:../../pages/clientes/administracion.php");
+    header("Location:../../pages/coductores/perfil.php");
 
 }
 else {
     $_SESSION['error']="no se pudo actualizar las preferencias de notificaciones";
-    header("Location:../../pages/clientes/administracion.php");
+    header("Location:../../pages/coductores/perfil.php");
 }
-?>

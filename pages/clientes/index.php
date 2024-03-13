@@ -12,7 +12,7 @@ include("../../drivers/config/sesion.php");
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/cliente.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">

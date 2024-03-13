@@ -9,7 +9,7 @@ $nombre     = $_POST["nombre"];             //LA PRIMERA ES LA VARIABLE, LA SEGU
 $apellidos  = $_POST["apellidos"];          //DEL FORMULARIO
 $correo    = $_POST["correo"];
 $password   = $_POST["contraseña"];
-
+ 
 $passwordHash = password_hash($password, PASSWORD_BCRYPT); //BCRYPT es el algoritmo de encriptacion, devuelve una cadena de 60 caracteres
 $fotoPerfil   = "img/clientes/$correo/perfil.jpg"; // ingresamos el nombre de la foto de perfil por defecto
 

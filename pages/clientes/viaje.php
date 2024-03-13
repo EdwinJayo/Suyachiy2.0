@@ -91,25 +91,25 @@
                 }
             ?>
             <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                <form action="" method="post">
-                    <div class="row">
+                <div class="row">
+                    <form action="../../drivers/clientes/guardargaleria.php" method="post" enctype="multipart/form-data">
                         <div class="col-12">
                             <label for="imagen" id="label-imagen">
                                 <div class="bg-image agregar-imagen rounded" >
                                     <i class="bi bi-plus-circle"></i>
                                 </div>
                             </label>
-                            <input type="file" id="imagen" hidden></input>
+                            <input type="file" id="imagen" hidden name="imagen"></input>
                         </div>
                         <div class="col-12">
-                            <butoon class="btn guardar" type="submit" hidden>
-                                <div class="bg-image agregar-imagen rounded" style="background-color:#1190CB;">
+                            <button type="submit" class="btn btn-primary guardar" hidden>
+                                <div class="bg-image agregar-imagen rounded">
                                     <i class="bi bi-floppy" style="font-size:3rem;"></i>
                                 </div>
-                            </butoon>
+                            </button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

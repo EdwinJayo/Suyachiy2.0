@@ -1,6 +1,9 @@
 <?php
 include("../config/conexion.php");
 
+session_start(); //inicia una nueva sesion o reaunuda la existente.
+$_SESSION['login'] = false;
+
 //declarando variables para recibir y guardar los datos enviados desde el formulario
 $nombre     = $_POST["nombre"];             //LA PRIMERA ES LA VARIABLE, LA SEGUNDA DESPUES DEL POST, ES DONDE GUARDAMOS LOS DATOS
 $apellidos  = $_POST["apellidos"];          //DEL FORMULARIO
@@ -26,8 +29,12 @@ if(!$consultaId){ //si la consulta esta vacia entonces significa que no existe e
         mkdir("../../img/conductores/$correo");//creamos una carpeta en imagenes para el cliente
         copy("../../img/default.jpg", "../../img/conductores/$correo/perfil.jpg"); //copiamos nuestra foto por default
 
-        echo "Tu cuenta a sido creada";
-        echo "<br> <a href='../../pages/public/loginConductor.php'>Iniciar Sesion</a></div>";
+        $_SESSION['login']       = true;                //$_SESSION es una variable superglobal
+        $_SESSION['correo']      = $correo;
+        $_SESSION['nombre']      = $nombre;
+        $_SESSION['apellidos']   = $apellidos;
+        $_SESSION['fotoPerfil']  = $fotoPerfil;
+        header('Location: ../../pages/conductores/estadoRuta.php');
     }
     
     else{

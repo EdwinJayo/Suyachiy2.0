@@ -18,12 +18,12 @@ if($consulta){
         if($consulta['tipo_usuario_id']==2){        //para comparar si es un usuario conductor
             
             $_SESSION['login']       = true;                //$_SESSION es una variable superglobal
+            $_SESSION['id']          = $consulta['id_usuario'];
             $_SESSION['correo']      = $consulta['email'];
             $_SESSION['nombre']      = $consulta['nombre'];
             $_SESSION['apellidos']   = $consulta['apellido'];
             $_SESSION['fotoPerfil']  = $consulta['foto_perfil'];
-            $_SESSION['id']          = $consulta['id_usuario'];
-            
+            $_SESSION['fecha']       = $consulta['fecha_registro'];
             header('Location: ../../pages/conductores/estadoRuta.php'); //Redireccionar a la pagina perfil de conductor
         }
 
