@@ -169,7 +169,13 @@ $idDestinoo = $consul2['id_ubicacion'];     //idubicacion de destino
                 ++$contador;
             }
 
-            $calificacion = (int)(($i / $contador) + 0.5);       //calificacion
+            if($contador==0){
+                $calificacion=0;
+            }
+            else{
+                $calificacion = (int)(($i / $contador) + 0.5);       //calificacion
+            }
+            
 
             $consulta4 = "SELECT * FROM vehiculos WHERE conductor_id = $con";
             $consulta4 = mysqli_query($conexion, $consulta4);

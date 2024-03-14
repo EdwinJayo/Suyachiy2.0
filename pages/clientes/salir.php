@@ -1,5 +1,6 @@
 <?php
-
+    session_start();
     session_abort();
-    header("Location: /");
+    session_destroy();
+    header('Location: ../../index.php');
 ?>

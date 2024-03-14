@@ -55,7 +55,7 @@ include("../../drivers/config/sesion.php");
                                         <select class="custom-select px-4" style="height: 47px;" name="origen" required>
                                             <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
@@ -74,7 +74,7 @@ include("../../drivers/config/sesion.php");
                                         <select class="custom-select px-4" style="height: 47px;" name="destino" required>
                                             <option hidden selected></option>
                                             <?php
-                                            $consulta = "SELECT ubicacion FROM ubicaciones WHERE id_ubicacion<>1";
+                                            $consulta = "SELECT ubicacion FROM ubicaciones";
                                             $datos = mysqli_query($conexion, $consulta);
 
                                             while ($fila = mysqli_fetch_array($datos)) {
